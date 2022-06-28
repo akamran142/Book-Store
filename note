@@ -1,0 +1,59 @@
+// first create model then create controller then create router then use in app.
+// model will contain Api request schema objects
+// controller will handle all CRUD requests  functions  
+// router will response to api address
+// finaly we use that router in our app.js
+
+> npm init to create package.json
+> name: backend
+> entery point : app.js
+> and enter for all
+> npm i nodemon cors express mongoose
+> cors help us to block browser security to send request to an other db server , 
+> in package.json under script 
+    "start": "nodemon app.js",
+> create app.js
+> check if nodemon is working with app.js by running command 
+> now setup mongoDb
+> go to mongoDb.com
+> login
+> create new project
+> create cluster
+> go to network access  
+> add ip address > access from anywhere and ok
+> database access > add new db user > add username and password and then click add user
+> then under deployment go to database
+>  now in vs code app.js create backend app
+> import all required items i.e express , cors and mongoose
+> create app with express const app = express();
+> connect mongoose with database 
+> go to mongodb and then in database deployment click on connect and 
+> click connect application and then copy connection string 
+> change password with your password
+> now run npm start to check db connected msg in console
+> to access port in browser we need middleware which will contain routes
+> // Middleware
+app.use("/", (req, res, next) => {
+    res.send("This is our starting app");
+});
+> now test port
+> make 3 folder name controller , model, route
+> routes folder will contain all router
+> in routes folder make a fileName.js file
+> then in js file import express and then router() function from express router 
+> const router = express.Router();
+
+> then create routes
+> But first we need an app model/schema to create router
+> for that go to model folder and create a js file.
+> import mongoose
+> use schema Class from mongoose to create a new schema
+> now create a new instance of schema which will contain all of the functionality of object
+> it will contain all the object like name, price etc
+> we need to export this model and this export will go to mongoDb , mongoDb will create a new collection of this Schema base
+> Export this module with command 
+> module.exports = mongoose.model("filename" , schemaName);
+
+> now import model in controller
+
+ 
